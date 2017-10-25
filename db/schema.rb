@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024141842) do
+ActiveRecord::Schema.define(version: 20171025124140) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20171024141842) do
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
     t.integer "votes_count", default: 0
+    t.integer "views_count", default: 0
   end
 
 end

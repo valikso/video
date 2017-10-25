@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :upvote, :edit, :update, :destroy]
-
+  after_action :views_count, only: [:show]
   # GET /movies
   # GET /movies.json
   def index
@@ -16,7 +16,6 @@ class MoviesController < ApplicationController
   def new
     @movie = Movie.new
   end
-
   # GET /movies/1/edit
   def edit
   end
@@ -60,10 +59,16 @@ class MoviesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def upvote
     @movie.increment!(:votes_count)
     redirect_to action: :index
   end
+
+  def views_count
+    @movie.increment!(:views_count)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie

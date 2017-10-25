@@ -1,50 +1,44 @@
-
 <p id="notice"><%= notice %></p>
 <div class="container" style="background-color: black">
-<h1>Фільми</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Logotip</th>     
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Фільми</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Logotip</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody>
+    <tbody>
 
-    <% @movies.each do |movie| %>
-     
-<ul class="list-unstyled">
-  <li class="media">
-    <img class=<%=image_tag movie.logo.url%> 
-    <div class="media-body">
-      <h1 class="mt-0 mb-1"><%= movie.title %> </h1>
-        <h5  </h5>
-        <%= link_to 'Show', movie %>
-        <%= link_to 'Редагувати', edit_movie_path(movie) %>
-        <%= link_to 'Видалити', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
-        Рейтинг: <%= movie.votes_count %>, <%= link_to "+", upvote_movie_path(movie)%></</h5>
-     <p class="card-text"><%= movie.description %></p>
+      <% @movies.each do |movie| %>
+
+      <ul class="list-unstyled">
+        <li class="media">
+          <img <%= class=<%=image_tag movie.logo.url%> <div class="media-body"> <h1 class="mt-0 mb-1"> movie.title %>
+        </h1>
+      <h5 </h5> <%= link_to 'Show', movie %> <%= link_to 'Редагувати', edit_movie_path(movie) %> <%= link_to 'Видалити', movie, method: :delete, data: { confirm: 'Are you sure?' } %> Рейтинг: <%= movie.votes_count %> <%= link_to "+", upvote_movie_path(movie)%>, </</h5>
+      Перегляди:
+      <%= movie.views_count %>
+
+      <p class="card-text"><%= movie.description %></p>
+      <p class="card-text"><%= movie.description %></p>
     </div>
   </li>
 
+  <tr>
+    <td><%=link_to movie.title, movie %></td>
 
+    <td><%= movie.description %></td>
+    <td><%=image_tag movie.logo.url(:thumb) %></td>
+    <td><%= link_to 'Show', movie %></td>
+    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+    <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-
-      <tr>
-        <td><%=link_to movie.title, movie %></td>
-
-        <td><%= movie.description %></td>
-        <td><%=image_tag movie.logo.url(:thumb) %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      
     <% end %>
   </tbody>
 </table>
 
 <br>
-
