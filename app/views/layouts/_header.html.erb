@@ -2,9 +2,10 @@
   <div class="navbar-inner">
     <div class="container">
         <ul class="nav pull-right">
-          <li><%= link_to "Home", pages_home_path %></li>
+          <li><%= link_to "Registration", new_user_path %></li>
+            <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Movies", movies_path %></li>
-            <li><%= link_to "Users", '#' %></li>
+            <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Фільми <b class="caret"></b>
