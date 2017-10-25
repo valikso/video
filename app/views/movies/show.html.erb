@@ -1,8 +1,5 @@
 <div class="container" style="background-color: black">
   <p id="notice"><%= notice %></p>
-
-  <%= link_to 'Edit', edit_movie_path(@movie) %>
-  |
   <%= link_to 'Back', movies_path %>
   <p>
     <h1><%= @movie.title %></h1>
@@ -22,7 +19,6 @@
   <p>
     <h3>
       <%= comment.commenter %>
-      :
       <%= comment.body %>
       <span class="badge badge-dark" ">New</span>
     </h3>
