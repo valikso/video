@@ -7,4 +7,8 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def status
+    @movies = Movie.all
+  end
 end

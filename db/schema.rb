@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024141842) do
+ActiveRecord::Schema.define(version: 20171025200812) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20171024141842) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.string "autor"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "logo_file_name"
@@ -31,6 +33,21 @@ ActiveRecord::Schema.define(version: 20171024141842) do
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
     t.integer "votes_count", default: 0
+    t.integer "views_count", default: 0
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string "remember_token"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
 end

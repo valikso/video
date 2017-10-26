@@ -13,6 +13,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'bcrypt-ruby', '3.1.2'
 # Use SCSS for stylesheets
 #gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'jquery-rails'
