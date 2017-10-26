@@ -1,5 +1,9 @@
-<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %> <%= javascript_include_tag "application", "data-turbolinks-track" => true %> <%= csrf_meta_tags %> 
-<%= render 'layouts/header' %>
+<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
+      <%= render 'layouts/header' %>
 <% flash.each do |key, value| %>
 <%= value %>
-<% end %> <%= yield %> <%= render 'layouts/footer' %>
+<% end %>
+
+<%= yield %> <%= render 'layouts/footer' %>

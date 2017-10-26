@@ -11,13 +11,16 @@ gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
+#gem 'sprockets-rails'
 gem 'puma', '~> 3.7'
-gem 'bootstrap-sass', '2.3.2.0'
+#gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 # Use SCSS for stylesheets
-#gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'jquery-rails'
-gem 'sass-rails', '~> 5.0'
+#gem 'sass-rails', '~> 5.0'
+#gem 'bootstrap-sass', '3.2.0.2'
+gem 'sass-rails', '>= 3.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
