@@ -1,38 +1,19 @@
 
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <div class="navbar-inner">
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Signin</title>
+  </head>
     <div class="container">
-      <nav>
-        <ul class="nav pull-right">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
 
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Movie", movies_path %></li>
-          <% if signed_in? %>
-          <li><%= link_to "Users", users_path %></li>
-          <li id="fat-menu" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li><%= link_to "Додати фільм",new_movie_path %></li>
-              <li><%= link_to "Управління записами", pages_status_video_path %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Sign out", signout_path, method: "delete" %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
-          <li><%= link_to "Registration", new_user_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+    </div> <!-- /container -->
+
+</html>

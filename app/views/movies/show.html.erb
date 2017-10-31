@@ -1,40 +1,49 @@
-<div class="container" style="background-color: black">
-  <p id="notice"><%= notice %></p>
+<link href="http://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+
+
   <%= link_to 'Back', movies_path %>
+  <div class="conteiner">
+
+
   <p>
     <h1><%= @movie.title %></h1>
   </p>
 
   <p>
-
     <%= image_tag @movie.logo.url %>
-    <h2>Опис</h2>
-    <h9><%= @movie.description %></h9>
+
+    <p>
+      <h3>Автор сценарію</h3>
+      <h6><%= @movie.author %></h6>
+      <h2>Опис</h2>
+      <h9><%= @movie.description %></h9>
   </p>
-  <p></p>
+
+  </div>
+  <div class="container">
+
 
   <h2>Коментарі</h2>
-
   <% @movie.comments.each do |comment| %>
   <p>
-    <h3>
-      <%= comment.commenter %>
-      <%= comment.body %>
-      <span class="badge badge-dark" ">New</span>
-    </h3>
+ 
+        <li><%= comment.user.name %>
+
+      <%= comment.body %></li>
+
+     </p>
+    </div>
     <% end %>
 
     <h2>Add a comment:</h2>
     <%= form_for([@movie, @movie.comments.build]) do |f| %>
     <p>
-      <%= f.label :commenter %><br/>
-      <%= f.text_field :commenter %>
-    </p>
+    <div class="form-group">
+      <%= f.label :body, "Введіть коментар" %>
+	  <%= f.text_field :body, :class => "form-control", :placeholder => "Comment" %>
+    </div>
+  </p>
     <p>
-      <%= f.label :body %><br/>
-      <%= f.text_area :body %>
-    </p>
-    <p>
-      <%= f.submit %>
+ <%= f.submit "ОК", :class => "btn btn-warning"%>
     </p>
     <% end %>

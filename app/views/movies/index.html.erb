@@ -1,23 +1,20 @@
-<p id="notice"><%= notice %></p>
-<div class="container" style="background-color: black">
-  <h1>Фільми</h1>
-  <table>
-    <tbody>
-      <% @movies.each do |movie| %>
-      <ul class="list-unstyled">
-      <li class="media">
-        <img class=<%=image_tag movie.logo.url%>
-        <div class="media-body">
-          <h1 class="mt-0 mb-1"><%= movie.title %> </h1>
-        </h1>
-    
-      Рейтинг: <%= movie.votes_count %>
-         <%= link_to "+", upvote_movie_path(movie)%>, </h5>
-      Перегляди:
-      <%= movie.views_count %>
-      <p class="card-text"><%= movie.description %></p>
-    </div>
-  </li>
-  <% end %>
-</tbody>
-</table>
+<link href="http://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+
+<h1>Фільми</h1>
+
+<div class="conteiner">
+  <% @movies.each do |movie| %>
+  <h2 class="card-title"><%= movie.title %></h2>
+<img class=<%=image_tag movie.logo.url(:medium)%>
+ Рейтинг: <%= movie.votes_count %>
+ <%= link_to "+", upvote_movie_path(movie)%>
+ Перегляди:<%= movie.views_count %>
+ <p>
+   <%= movie.description %>
+ </p>
+  <a href="<%= movie_path (movie.id) %>" class="btn btn-primary"> Детальніше</a>
+
+
+<% end %>
+</div>
+ 
