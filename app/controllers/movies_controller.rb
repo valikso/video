@@ -5,6 +5,10 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     @movies = Movie.all
+    @movies = @movies.where("title = ?", params[:title_search].capitalize) if params[:title_search]
+      if @movies.empty?
+        @movies = Movie.all
+      end
   end
 
   # GET /movies/1
@@ -54,11 +58,12 @@ class MoviesController < ApplicationController
   # DELETE /movies/1.json
   def destroy
     @movie.destroy
-    respond_to do |format|
-      format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
+   respond_to do |format|
+      format.html { redirect_to proc { pages_status_video_path }, notice: 'Movie was successfully destroyed.' }
       format.json { head :no_content }
-    end
+   end
   end
+
 
   def upvote
     @movie.increment!(:votes_count)
@@ -77,6 +82,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :description, :logo, :country, :autor)
+      params.require(:movie).permit(:title, :description, :logo, :country, :year, :author)
     end
 end

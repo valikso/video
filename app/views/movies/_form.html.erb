@@ -1,32 +1,30 @@
-<div class="container" style="background-color: grey">
-<%= form_with(model: movie, local: true) do |form| %>
-  <% if movie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
-
-      <ul>
-      <% movie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@movie) do |f| %>
-
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :movie_title %>
-
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :movie_description %>
-
-
-    <%= form.file_field :logo %>
-
-    <%= f.submit "Додати фільм", class: "btn btn-large btn-primary" %>
-    <% end %>
+<div class="container">
+<div class="form-group">
+  <%= form_for(@movie) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, id: :movie_title %>
   </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, id: :movie_description %>
+  </div>
+  <div class="form-group">
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+  <div class="form-group">
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+  </div>
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+  </div>
+  <div class="form-group">
+    <%= f.file_field :logo %>
+  </div>
+  <%= f.submit "Додати фільм", class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
-<% end %>
+</div>

@@ -1,12 +1,24 @@
 
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= image_tag @user.avatar.url %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+
+<% provide(:title, @user.first_name) %>
+<div class="commenter">
+<div class="card" style="width: 35rem;">
+  <img class="card-img-top" src="<%= @user.avatar.url(:medium) %>">
+  <div class="card-body">
+    <h4 class="card-title">Ім*я:  <%=@user.first_name %>   </h4>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> <strong>Last name:</strong>  <%= @user.last_name %></li>
+    <li class="list-group-item">  <strong>Email:</strong>    <%= @user.email %></li>
+      <li class="list-group-item">  <strong>Age:</strong>  <%= @user.age %></li>
+      <li class="list-group-item">  <strong>Telephone:</strong>  <%= "09876543456789" %></li>
+        <li class="list-group-item"> <strong> Country:</strong> <%= @user.country %></li>
+          <li class="list-group-item"> <strong> Address: </strong> <%= @user.address %></li>
+            <li class="list-group-item"> <strong> Sex: </strong> <%= @user.sex %></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
 </div>

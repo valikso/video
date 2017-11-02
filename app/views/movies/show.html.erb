@@ -1,40 +1,53 @@
-<div class="container" style="background-color: black">
-  <p id="notice"><%= notice %></p>
-  <%= link_to 'Back', movies_path %>
-  <p>
+<link href="http://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+
+<%= link_to 'Back', movies_path %>
+<div class="conteiner">
     <h1><%= @movie.title %></h1>
-  </p>
-
-  <p>
-
     <%= image_tag @movie.logo.url %>
-    <h2>Опис</h2>
-    <h9><%= @movie.description %></h9>
-  </p>
-  <p></p>
 
-  <h2>Коментарі</h2>
+      <h3>Автор сценарію</h3>
+      <h6><%= @movie.author %></h6>
+      <h2>Опис</h2>
+      <h9><%= @movie.description %></h9>
 
-  <% @movie.comments.each do |comment| %>
-  <p>
-    <h3>
-      <%= comment.commenter %>
+  </div>
+  <div class="container">
+    <h2>Коментарі</h2>
+    <% @movie.comments.each do |comment| %>
+    <p>
+      <% if current_user?(comment.user) %>
+      <td>
+        <p>
+          <u><%= link_to  'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></u>
+        </p>
+      </td>
+      <% end %>
+      <%= image_tag comment.user.avatar.url(:small) %>
+      <strong>
+        <%= comment.user.first_name %>:</strong>
       <%= comment.body %>
-      <span class="badge badge-dark" ">New</span>
-    </h3>
-    <% end %>
+    </p>
+  </p>
+  <p>
+    <u>
+      <% end %>
+      <% if signed_in? %>
 
-    <h2>Add a comment:</h2>
-    <%= form_for([@movie, @movie.comments.build]) do |f| %>
-    <p>
-      <%= f.label :commenter %><br/>
-      <%= f.text_field :commenter %>
-    </p>
-    <p>
-      <%= f.label :body %><br/>
-      <%= f.text_area :body %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
-    <% end %>
+      <h2>Add a comment:</h2>
+      <%= form_for([@movie, @movie.comments.build]) do |f| %>
+      <p>
+        <div class="form-group">
+          <%= f.label :body, "Введіть коментар" %>
+          <%= f.text_field :body, :class => "form-control", :placeholder => "Comment" %>
+        </div>
+      </p>
+      <p>
+        <%= f.submit "ОК", :class => "btn btn-warning"%>
+      </p>
+
+      <% end %>
+      <% elsif%>
+      <h2>
+        Коментарі можуть залишати тільки зареєстровані користувачі</h2>
+      <% end %>
+    </div>

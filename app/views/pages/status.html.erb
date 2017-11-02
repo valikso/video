@@ -1,9 +1,10 @@
 <table class="table table-dark">
+  <%= link_to "Додати фільм", new_movie_path %>
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
+      <th scope="col">Author</th>
       <th scope="col">Avatar</th>
       <th scope="col">Переглядів</th>
       <th scope="col">Лайків</th>
@@ -14,14 +15,16 @@
     <tr>
       <th scope="row"><%= m.id %></th>
       <td><%= m.title %></td>
-      <td>autor
-      </td>
+      <td><%= m.author %>  </td>
       <td><%= image_tag m.logo.url(:thumb) %></td>
       <td><%= m.views_count %></td>
       <td><%= m.votes_count %></td>
       <td><%= link_to 'Show', m %></td>
+      <% if current_user.admin? && !current_user?(@user) %>
       <td><%= link_to 'Edit', edit_movie_path(m) %></td>
       <td><%= link_to 'Destroy', m, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                  <% end %>
+
     </tr>
   </tbody>
   <% end %>
