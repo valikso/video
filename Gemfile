@@ -18,6 +18,7 @@ gem 'bcrypt-ruby', '3.1.2'
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'jquery-rails'
+gem 'faker', '1.1.2'
 #gem 'sass-rails', '~> 5.0'
 #gem 'bootstrap-sass', '3.2.0.2'
 gem 'sass-rails', '>= 3.2'

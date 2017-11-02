@@ -22,7 +22,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Ви ввійшли як   <%= current_user.name %>
+        Ви ввійшли як   <%= current_user.first_name %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href= "<%= user_path (current_user.id)%>">Profile</a>
@@ -31,7 +31,6 @@
         <a class="dropdown-item" href="<%=pages_status_video_path%>">Status video</a>
         <%= link_to "Sign out", signout_path, method: "delete" %>
         <div class="dropdown-divider"></div>
-
       </div>
     </li>
       </div>

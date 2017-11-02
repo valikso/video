@@ -4,6 +4,13 @@ class CommentsController < ApplicationController
     @comment = @movie.comments.create(user_id: current_user.id, movie_id: @movie.id, body: comment_params[:body])
 		redirect_to movie_path(@movie)
   end
+	def destroy
+			@comment=Comment.find(params[:id])
+			@movie = @comment.movie
+		if @comment.destroy
+			redirect_to movie_path(@movie)
+			end
+end
 
   private
    def comment_params
