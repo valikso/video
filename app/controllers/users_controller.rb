@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = 'Profile updated'
+
       redirect_to @user
     else
       render 'edit'
@@ -38,9 +39,9 @@ class UsersController < ApplicationController
   end
   def destroy
   @user = User.find(params[:id])
-  if @user.destroy
+ @user.destroy
+    UsersMailer.user_destroyed(@user).deliver
     redirect_to users_path
-  end
 end
 
 
