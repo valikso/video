@@ -53,7 +53,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 group :production do
-  gem 'pg', '0.15.1'
+  gem 'pg', '~> 0.20'
   gem 'rails_12factor'
 end
 
