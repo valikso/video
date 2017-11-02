@@ -27,5 +27,5 @@ development:
 #  database: db/test.sqlite3
 
 #roduction:
-  <<: *default
-  database: db/production.moviedb
+  #<<: *default
+  #database: db/production.moviedb
