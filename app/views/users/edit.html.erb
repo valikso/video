@@ -1,28 +1,56 @@
 <% provide(:title, 'Редагування') %>
 <h1>Редагування</h1>
-<div class="container">
-<div class="row">
+<div class="conteiner">
+
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
 
-    <p   <%= f.label :name %>
-      <%= f.text_field :name %></p>
+    <%= render 'shared/error_messages' %>
 
-      <p  <%= f.label :email %>
-      <%= f.text_field :email %></p>
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
 
-    <p    <%= f.label :password %>
-      <%= f.password_field :password %></p>
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
 
-    <p    <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %></p>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
 
-    <p    <%= f.file_field :avatar %>
+    <div class="form-group">
+      <%= f.label "Стать" %>
+      <%= f.text_field :sex %>
+    </div>
 
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+    </div>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <div class="form-group">
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="form-group">
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <%= f.file_field :avatar %>
+    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+
     <% end %>
   </div>
-</div>
 </div>

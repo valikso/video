@@ -20,8 +20,11 @@
       <td><%= m.views_count %></td>
       <td><%= m.votes_count %></td>
       <td><%= link_to 'Show', m %></td>
+      <% if current_user.admin? && !current_user?(@user) %>
       <td><%= link_to 'Edit', edit_movie_path(m) %></td>
       <td><%= link_to 'Destroy', m, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                  <% end %>
+
     </tr>
   </tbody>
   <% end %>

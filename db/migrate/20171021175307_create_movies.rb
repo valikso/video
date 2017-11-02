@@ -6,6 +6,7 @@ class CreateMovies < ActiveRecord::Migration[5.1]
       t.string :author
       t.string :country
       t.integer :year
+      t.string :category
       t.timestamps
     end
   end
