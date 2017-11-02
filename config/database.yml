@@ -21,10 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: blog_test
-  pool: 5
-  timeout: 5000
-  username: valik
-  password: valik
+  <<: *default
+  database: db/production.sqlite3

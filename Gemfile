@@ -18,7 +18,9 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'jquery-rails'
 gem 'faker', '1.1.2'
-gem 'sqlite3'
+
+
+#gem 'sqlite3'
 #gem 'sass-rails', '~> 5.0'
 #gem 'bootstrap-sass', '3.2.0.2'
 gem 'sass-rails', '>= 3.2'
@@ -50,11 +52,11 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2'
+  gem 'pg'
 end
 
 group :development do
+  gem 'sqlite3'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
