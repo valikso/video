@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-  <a class="navbar-brand" href="">Film</a>
+  <a class="navbar-brand" href="/">Film</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,45 +10,68 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<%= root_path%>">Home</a>
+        <a class="nav-link" href="<%= root_path%>">Головна</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<%= movies_path %>">Фільми</a>
       </li>
+
       <li class="nav-item dropdown">
-  <% if signed_in? %>
+        <% if signed_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= pages_table_path %>">Стіл заказів</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="<%= users_path %>">Учасники</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Ви ввійшли як   <%= current_user.first_name %>
+          Ви ввійшли як
+          <%= current_user.first_name %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href= "<%= user_path (current_user.id)%>">Profile</a>
+          <a class="dropdown-item" href="<%= user_path (current_user.id)%>">Profile</a>
           <a class="dropdown-item" href="<%= edit_user_path (current_user.id)%>">Settings</a>
-          <a class="dropdown-item" href="signout_path, method: "delete"">Sign out</a>
+          <a class="dropdown-item" href="signout_path, method: " delete"">Sign out</a>
+
+          <%= link_to "Sign out", signout_path, method: "delete" %>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+    </div>
+    <% if current_user.admin? && !current_user?(@user) %>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        adminka
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="<%= pages_check_orders_path%>">Check orders</a>
         <a class="dropdown-item" href="<%=pages_status_video_path%>">Status video</a>
-        <%= link_to "Sign out", signout_path, method: "delete" %>
+        <a class="dropdown-item" href="<%= users_path %>">Show and edit users</a>
+        <a class="dropdown-item" href="#">Sign out</a>
+        <a class="dropdown-item" href="#">Status video</a>
         <div class="dropdown-divider"></div>
       </div>
     </li>
-      </div>
-  <% else %>
+  </div>
+  <% end %>
+<% else %>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="<%= signin_path %>">Sign in</a>
+    </li>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<%= signin_path %>">Sign in</a>
+        <a class="nav-link" href="<%= new_user_path %>">Registration</a>
       </li>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="<%= new_user_path %>">Registration</a>
-        </li>
-          </ul>
-        <% end %>
-      <form class="form-inline my-2 my-lg-0">
-        <div class="input-group">
-
-    <a><%= text_field_tag :title_search, params[:title_search], placeholder: "Search Films", class: 'form-control' %>
-</div>
-    </form>
-  </nav>
+    </ul>
+    <% end %>
+    <ul
+    <form class="form-inline my-2 my-lg-0">
+      <div class="input-group">
+        <a><%= text_field_tag :title_search, params[:title_search], placeholder: "Search Films", class: 'form-control' %>
+        </div>
+            </ul>
+      </form>
+    </nav>

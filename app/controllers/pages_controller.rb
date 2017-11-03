@@ -11,4 +11,8 @@ class PagesController < ApplicationController
   def status
     @movies = Movie.all
   end
+
+  def check_orders
+     @orders = Order.all
+  end
 end

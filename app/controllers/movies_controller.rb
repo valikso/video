@@ -1,8 +1,14 @@
 class MoviesController < ApplicationController
+ 
   before_action :set_movie, only: [:show, :upvote, :edit, :update, :destroy]
   after_action :views_count, only: [:show]
   # GET /movies
   # GET /movies.json
+  def check_presence
+  params[:title_search].present?
+  redirect_to "/"
+ end
+
   def index
     @movies = Movie.all
     @movies = @movies.where("title = ?", params[:title_search].capitalize) if params[:title_search]
@@ -23,6 +29,8 @@ class MoviesController < ApplicationController
   # GET /movies/1/edit
   def edit
   end
+
+
 
   # POST /movies
   # POST /movies.json
