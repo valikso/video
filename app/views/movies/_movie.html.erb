@@ -1,9 +1,7 @@
 <link href="http://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
 
 <h1>Фільми</h1>
-
 <div class="conteiner">
-  <% @movies.each do |movie| %>
   <h2 class="card-title"><%= movie.title %></h2>
 <img class=<%=image_tag movie.logo.url(:medium)%>
  Рейтинг: <%= movie.votes_count %>
@@ -11,8 +9,7 @@
  Перегляди:<%= movie.views_count %>
  <p>
    <%= movie.description %>
-   <%= raw movie.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: "tag tag-primary" }.join(' ')%>
  </p>
   <a href="<%= movie_path (movie.id) %>" class="btn btn-primary"> Детальніше</a>
-<% end %>
+
 </div>

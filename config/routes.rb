@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users
     resources :comments
+    resources :tags, only: [:show]
     resources :orders, only: [:new, :create, :index]
     resources :sessions, only: [:new, :create, :destroy]
   root  'pages#home'
