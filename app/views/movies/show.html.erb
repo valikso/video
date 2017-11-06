@@ -32,7 +32,6 @@
     <u>
       <% end %>
       <% if signed_in? %>
-
       <h2>Add a comment:</h2>
       <%= form_for([@movie, @movie.comments.build]) do |f| %>
       <p>
