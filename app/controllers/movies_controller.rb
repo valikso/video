@@ -10,11 +10,16 @@ class MoviesController < ApplicationController
  end
 
   def index
-    @movies = Movie.all
-    @movies = @movies.where("title = ?", params[:title_search].capitalize) if params[:title_search]
+    if params[:title_search].blank?
+      @movies = Movie.all
+    else
+    # @movies = Movie.where("title = ?", params[:title_search].capitalize)
+    #@movies = Movie.all.where("title LIKE ?", "%#{params[:title_search]}%")
+    @movies = Movie.all.where("title ilike ? OR title ilike ?","#{params[:title_search]}%", "%#{params[:title_search]}")
       if @movies.empty?
-        @movies = Movie.all
+        flash.now[:success] = 'Фільма не знайдено'
       end
+    end
   end
 
   # GET /movies/1
