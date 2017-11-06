@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :users
     resources :comments
-  resources :sessions, only: [:new, :create, :destroy]
+    resources :tags, only: [:show]
+    resources :orders, only: [:new, :create, :index]
+    resources :sessions, only: [:new, :create, :destroy]
   root  'pages#home'
 
   match '/signup',  to: 'users#new',            via: 'get'
@@ -10,8 +12,9 @@ Rails.application.routes.draw do
   get 'users/new'
   get '/pages/status_video',  :to => 'pages#status'
   root 'pages#home'
-
+  get 'pages/table'
   get 'pages/contact'
+  get 'pages/check_orders'
 
   get 'pages/about'
 

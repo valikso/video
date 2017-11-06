@@ -1,0 +1,21 @@
+<div class="container">
+
+<%= form_for (Order.new) do | f | %>
+  <div class="form-group">
+    <%= f.label :name_of_film, "Введіть назву фільма" %>
+    <%= f.text_field :name_of_film, :class => "form-control", :placeholder => "Назва" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :year, "Введіть рік фільма" %>
+    <%= f.text_field :year, :class => "form-control", :placeholder => "Введіть рік випуску" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Коментар до фільма" %>
+    <%= f.text_field :description, :class => "form-control", :placeholder => "Опис або коментар  " %>
+  </div>
+<p>
+  <%= f.submit "ОК", :class => "btn btn-warning"%>
+</p>
+<% end %>
+ 
+</div>

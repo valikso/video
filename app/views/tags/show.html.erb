@@ -1,0 +1,7 @@
+<h1><% @tag.name %> </h1>
+
+<% if @tag.movies.empty? %>
+  <h2> Фільмів нема</h2>
+  <% else%>
+  <%= render @tag.movies%>
+  <% end%>
