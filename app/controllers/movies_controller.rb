@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
- 
+
   before_action :set_movie, only: [:show, :upvote, :edit, :update, :destroy]
   after_action :views_count, only: [:show]
   # GET /movies
@@ -90,6 +90,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :description, :logo, :country, :year, :author)
+      params.require(:movie).permit(:all_tags, :title, :description, :logo, :country, :year, :author)
     end
 end

@@ -5,6 +5,7 @@
       <th scope="col">#</th>
       <th scope="col">First Name</th>
       <th scope="col">Author</th>
+      <th scope="col">Жанр</th>
       <th scope="col">Avatar</th>
       <th scope="col">Переглядів</th>
       <th scope="col">Лайків</th>
@@ -16,6 +17,7 @@
       <th scope="row"><%= m.id %></th>
       <td><%= m.title %></td>
       <td><%= m.author %>  </td>
+        <td><%= raw m.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: "tag tag-primary" }.join(' ')%> </td>
       <td><%= image_tag m.logo.url(:thumb) %></td>
       <td><%= m.views_count %></td>
       <td><%= m.votes_count %></td>

@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
 def create
   @order = Order.create(user_id: current_user.id, name_of_film:
-   order_params[:name_of_film], description: order_params[:description])
+   order_params[:name_of_film], description: order_params[:description], year: order_params[:year])
   if @order.save
     redirect_to "/"
       flash[:success] = 'Успех, замовлення принято'

@@ -5,10 +5,10 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Назва:<%= order.name_of_film %></h4>
-          <p class="card-text">Опис:<%=order.description %></p>
-          <p class="card-text">Замовлення від:<%=order.user.email %></p>
-          <p class="card-text">
+          <h4 class="card-title">Назва: <%= order.name_of_film %></h4>
+          <p class="card-text">Опис: <%=urls_to_links(order.description) %></p>
+          <p class="card-text">Замовлення від: <%=order.user.email %></p>
+         <p class="card-text">Рік фільму: <%=order.year %></p>
             Створений :<%=order.created_at  %></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
