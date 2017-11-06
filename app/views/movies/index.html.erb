@@ -6,8 +6,9 @@
   <% @movies.each do |movie| %>
   <h2 class="card-title"><%= movie.title %></h2>
 <img class=<%=image_tag movie.logo.url(:medium)%>
- Рейтинг: <%= movie.votes_count %>
- <%= link_to "+", upvote_movie_path(movie)%>
+ <p>Рейтинг: <%= movie.votes_count %>  <%= link_to "+", upvote_movie_path(movie)%></p>
+ <p>Жанр  <%= raw movie.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: "tag tag-primary" }.join(' ')%> </p>
+
  Перегляди:<%= movie.views_count %>
  <p>
    <%= movie.description %>

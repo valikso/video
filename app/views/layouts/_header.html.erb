@@ -42,14 +42,12 @@
     <% if current_user.admin? && !current_user?(@user) %>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        adminka
+        Admin Panel
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="<%= pages_check_orders_path%>">Check orders</a>
         <a class="dropdown-item" href="<%=pages_status_video_path%>">Status video</a>
         <a class="dropdown-item" href="<%= users_path %>">Show and edit users</a>
-        <a class="dropdown-item" href="#">Sign out</a>
-        <a class="dropdown-item" href="#">Status video</a>
         <div class="dropdown-divider"></div>
       </div>
     </li>
@@ -67,11 +65,10 @@
       </li>
     </ul>
     <% end %>
-    <ul
     <form class="form-inline my-2 my-lg-0">
       <div class="input-group">
         <a><%= text_field_tag :title_search, params[:title_search], placeholder: "Search Films", class: 'form-control' %>
         </div>
-            </ul>
       </form>
+
     </nav>
