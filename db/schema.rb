@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20171103215651) do
     t.string "author"
     t.string "country"
     t.integer "year"
-    t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "logo_file_name"
@@ -73,6 +72,7 @@ ActiveRecord::Schema.define(version: 20171103215651) do
     t.string "address"
     t.string "country"
     t.string "sex"
+    t.integer "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
