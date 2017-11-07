@@ -13,13 +13,7 @@ class MoviesController < ApplicationController
     if params[:title_search].blank?
       @movies = Movie.all
     else
-    # @movies = Movie.where("title = ?", params[:title_search].capitalize)
-    #@movies = Movie.all.where("title LIKE ?", "%#{params[:title_search]}%")
-    #@movies = Movie.all.where("title ilike ? OR title ilike ?","#{params[:title_search]}%", "%#{params[:title_search]}")
-  #  @movies = Movie.all.where("lower(title) LIKE ? OR lower(title) LIKE ?",
-  #   "%#{params[:title_search].downcase}%","%#{params[:title_search].downcase} %" )
-    @movies = Movie.all.where("lower(title) LIKE ? OR lower(title) LIKE ?",
-     "% #{params[:title_search].downcase} %","#{params[:title_search].downcase}%")
+    @movies = Movie.where("lower(title) LIKE ? ","#{params[:title_search].downcase}%")
         if @movies.empty?
           flash.now[:success] = 'Фільма не знайдено'
         end
