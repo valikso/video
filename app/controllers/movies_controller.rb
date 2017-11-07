@@ -2,6 +2,17 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :upvote, :edit, :update, :destroy]
   after_action :views_count, only: [:show]
 
+  def index
+    if params[:title_search].blank?
+        @movies = Movie.all
+    else
+         @movies = Movie.where("lower(title) LIKE ? ","#{params[:title_search].downcase}%")
+       if @movies.empty?
+          flash.now[:success] = 'Фільма не знайдено'
+       end
+    end
+  end
+
   def show
   end
 
