@@ -31,6 +31,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<%= user_path (current_user.id)%>">Profile</a>
+          <a class="dropdown-item" href="<%= pages_dialog_path (current_user.id)%>">Dialogues</a>
           <a class="dropdown-item" href="<%= edit_user_path (current_user.id)%>">Settings</a>
           <a class="dropdown-item" href="signout_path, method: " delete"">Sign out</a>
 

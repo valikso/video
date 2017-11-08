@@ -11,4 +11,5 @@ class ApplicationController < ActionController::Base
      redirect_to(:controller => :movies, :action => :index, :title_search => params[:title_search])
    end
  end
+
 end

@@ -14,24 +14,26 @@
       <th scope="col">Avatar</th>
     </tr>
   </thead>
-  <% @users.each do |u| %>
+  <% @users.each do |user| %>
   <tbody>
     <tr>
-      <th scope="row"><%= u.id %></th>
-      <td><%= u.first_name %></td>
-      <td><%= u.last_name%></td>
-      <td><%= u.age%></td>
-      <td><%= u.email%></td>
-      <td><%= u.address%></td>
-      <td><%= u.country%></td>
-      <td><%= u.sex%></td>
+      <th scope="row"><%= user.id %></th>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name%></td>
+      <td><%= user.age%></td>
+      <td><%= user.email%></td>
+      <td><%= user.address%></td>
+      <td><%= user.country%></td>
+      <td><%= user.sex%></td>
 
-      <td><%= image_tag u.avatar.url(:small) %></td>
+      <td><%= image_tag user.avatar.url(:small) %></td>
+  <td><%= link_to 'Message me!', conversations_path(sender_id: @current_user.id,
+   recipient_id: user.id), method: 'post'%> </td>
 
-        <td><%= link_to 'Show', u %></td>
+        <td><%= link_to 'Show', user %></td>
         <% if current_user.admin? && !current_user?(@user) %>
-        <td><%= link_to 'Edit', edit_user_path(u.id) %></td>
-        <td><%= link_to 'Destroy', u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_user_path(user.id) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   </tbody>
   <% end %>

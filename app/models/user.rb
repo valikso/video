@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :orders, dependent: :destroy
   before_save { self.email = email.downcase }
+  has_many :conversations, :foreign_key => :sender_id
   before_create :create_remember_token
 
   validates :first_name, presence: true, length: { maximum: 50 }

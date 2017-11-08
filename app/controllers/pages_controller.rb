@@ -16,4 +16,8 @@ class PagesController < ApplicationController
   def check_orders
      @orders = Order.all
   end
+  def dialog
+      @users = User.all
+      @conversations = Conversation.all
+  end
 end
