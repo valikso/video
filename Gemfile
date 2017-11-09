@@ -15,15 +15,15 @@ gem 'puma', '~> 3.7'
 #gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 # Use SCSS for stylesheets
-gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'faker', '1.1.2'
 gem 'pg'
-
+gem 'popper_js', '~> 1.12.3'
 #gem 'sqlite3'
 #gem 'sass-rails', '~> 5.0'
 #gem 'bootstrap-sass', '3.2.0.2'
-gem 'sass-rails', '>= 3.2'
+#gem 'sass-rails', '>= 3.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -52,7 +52,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
- 
+
 group :development do
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
