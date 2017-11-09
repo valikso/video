@@ -68,9 +68,15 @@ class MoviesController < ApplicationController
 
 
   def upvote
-    @movie.increment!(:votes_count)
-    redirect_to action: :index
-  end
+    rate = Rate.create(user_id: current_user.id, movie_id: @movie.id)
+      if rate.save
+        @movie.increment!(:votes_count)
+        redirect_to action: :index
+      else
+        redirect_to action: :index
+        flash[:success] = "Голосувати можна тільки один раз"
+      end
+end
 
   def views_count
     @movie.increment!(:views_count)
