@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
     else
          @movies = Movie.where("lower(title) LIKE ? ","#{params[:title_search].downcase}%")
        if @movies.empty?
+         @movies = Movie.all
           flash.now[:success] = 'Фільма не знайдено'
        end
     end
