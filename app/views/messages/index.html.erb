@@ -1,35 +1,35 @@
 <div class="container">
-  <li class="list-group-item disabled">Dialog</li>
-  <% @messages.each do |message| %>
-  <% if message.body %>
-  <% user = User.find(message.user_id) %>
-  <div class="item">
-    <div class="content">
-      <div class="header">
-        <ul class="list-group">
-          <li class="list-group-item"><%=image_tag user.avatar.url(:small)%>
-            <strong><%= user.first_name %></strong>:  <%= message.body %></li></li>
-            <n><small>  <%= message.message_time %></small></n>
-        </div>
+<li class="list-group-item disabled">Dialog</li>
+<% @messages.each do |message| %>
+<% if message.body %>
+<% user = User.find(message.user_id) %>
+<div class="item">
+  <div class="content">
+    <div class="header">
+      <ul class="list-group">
+        <li class="list-group-item"><%=image_tag user.avatar.url(:small)%>
+          <strong><%= user.first_name %></strong>:
+          <%= message.body %></li>
+      </li>
+      <n>
+        <small>
+          <%= message.message_time %></small>
+      </n>
     </div>
   </div>
-
-      <% end %>
+</div>
+<% end %>
 <% end %>
 </div>
 <div class="container">
 
-
-
-
-
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
 <div class="field">
-<%= f.text_area :body, class: "form-control" %>
+  <%= f.text_area :body, class: "form-control" %>
 </div>
 <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
 <div>
-<%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
+  <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
 </div>
 </div>
 <% end %>
