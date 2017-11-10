@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-
+  before_action :signed_in_user, only: [:upvote]
   before_action :set_movie, only: [:show, :upvote, :edit, :update, :destroy]
   after_action :views_count, only: [:show]
   before_action :admin_user, only: [:new, :edit, :update, :destroy]
