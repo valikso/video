@@ -1,18 +1,16 @@
-
 <h1>Фільми</h1>
-
-<div class="conteiner">
-  <% @movies.each do |movie| %>
-  <h2 class="card-title"><%= movie.title %></h2>
-<img class=<%=image_tag movie.logo.url(:medium)%>
- <p>Рейтинг: <%= movie.votes_count %>  <%= link_to "+", upvote_movie_path(movie)%></p>
- <p>Жанр  <%= raw movie.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: "tag tag-primary" }.join(' ')%> </p>
-
- Перегляди:<%= movie.views_count %>
- <p>
-   <%= movie.description %>
- </p>
-  <a href="<%= movie_path (movie.id) %>" class="btn btn-primary"> Детальніше</a>
+<% @movies.each do |movie| %>
+  <ul class="list-unstyled">
+    <li class="media">
+      <img class="d-flex mr-3" src="<%=movie.logo.url(:lite)%>" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1"><%= movie.title %></h5>
+        <%= movie.description %>
+         <p>Перегляди:  <%= movie.views_count %></p>
+        <p>Жанр  <%= raw movie.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: "tag tag-primary" }.join(' ')%> </p>
+        <p>Рейтинг:  <%= movie.votes_count %>  <%= link_to "+", upvote_movie_path(movie)%></p>
+      <a href="<%= movie_path (movie.id) %>" class="btn btn-primary"> Детальніше</a>
+       </div>
+    </li>
+  </ul>
 <% end %>
-</div>
-</div>

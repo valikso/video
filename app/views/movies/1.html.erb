@@ -1,0 +1,51 @@
+
+<%= link_to 'Back', movies_path %>
+<div class="conteiner">
+   <h1><%= @movie.title %></h1>
+   <%= image_tag @movie.logo.url %>
+
+     <h3>Автор сценарію</h3>
+     <h6><%= @movie.author %></h6>
+       <h6><%= @movie.year %></h6>
+         <h6><%= @movie.country %></h6>
+     <h2>Опис</h2>
+     <h9><%= @movie.description %></h9>
+     <%= raw @movie.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: "tag tag-primary" }.join(' ')%>
+ </div>
+ <div class="container">
+   <h2>Коментарі</h2>
+   <% @movie.comments.each do |comment| %>
+   <p>
+     <% if current_user?(comment.user) %>
+     <td>
+       <p>
+         <u><%= link_to  'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></u>
+       </p>
+     </td>
+     <% end %>
+     <%= image_tag comment.user.avatar.url(:small) %>
+     <strong>
+       <%= comment.user.first_name %>:</strong>
+    <%= urls_to_links(urls_to_images(comment.body)) %>
+ <p>
+   <u>
+     <% end %>
+     <% if signed_in? %>
+     <h2>Add a comment:</h2>
+     <%= form_for([@movie, @movie.comments.build]) do |f| %>
+     <p>
+       <div class="form-group">
+         <%= f.label :body, "Введіть коментар" %>
+         <%= f.text_field :body, :class => "form-control", :placeholder => "Comment" %>
+       </div>
+     </p>
+     <p>
+       <%= f.submit "ОК", :class => "btn btn-warning"%>
+     </p>
+
+     <% end %>
+     <% elsif%>
+     <h2>
+       Коментарі можуть залишати тільки зареєстровані користувачі</h2>
+     <% end %>
+   </div>
