@@ -1,8 +1,8 @@
- 
+
 <h1>Фільми</h1>
 <div class="conteiner">
   <h2 class="card-title"><%= movie.title %></h2>
-<img class=<%=image_tag movie.logo.url(:medium)%>
+<img class=<%=image_tag movie.logo.url(:lite)%>
  Рейтинг: <%= movie.votes_count %>
  <%= link_to "+", upvote_movie_path(movie)%>
  Перегляди:<%= movie.views_count %>

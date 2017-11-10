@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   before_action :check_presence
   def home
-
   end
 
   def contact

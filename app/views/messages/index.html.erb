@@ -1,24 +1,27 @@
-<% if @over_ten %>
-<%= link_to 'Show Previous', '?m=all' %>
-<% end %>
-
-<div class="ui segment">
+<div class="container">
+  <li class="list-group-item disabled">Dialog</li>
   <% @messages.each do |message| %>
   <% if message.body %>
   <% user = User.find(message.user_id) %>
   <div class="item">
     <div class="content">
       <div class="header">
-        <strong><%=image_tag user.avatar.url(:small)%><%= user.first_name %></strong>
-        <%= message.message_time %></div>
-
-    <li class="list-group-item">
-      <%= message.body %></li>
+        <ul class="list-group">
+          <li class="list-group-item"><%=image_tag user.avatar.url(:small)%>
+            <strong><%= user.first_name %></strong>:  <%= message.body %></li></li>
+            <n><small>  <%= message.message_time %></small></n>
+        </div>
+    </div>
   </div>
-</div>
-</div>
+
+      <% end %>
 <% end %>
-<% end %>
+</div>
+<div class="container">
+
+
+
+
 
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
 <div class="field">
@@ -28,5 +31,5 @@
 <div>
 <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
 </div>
-
+</div>
 <% end %>
