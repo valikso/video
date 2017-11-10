@@ -1,9 +1,7 @@
 class PagesController < ApplicationController
   before_action :check_presence
   def home
-      @movies1 = Movie.where("votes_count >= 2").last
-      @movies2 = Movie.where("views_count >= 1" ).last
-      @movies3 = Movie.where("views_count >= 1").last
+
   end
 
   def contact
